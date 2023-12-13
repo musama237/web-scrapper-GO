@@ -1,11 +1,19 @@
 package main
 
 import (
-	"net/http"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-func parseHTML(response *http.Response) *goquery.Document {
-	// Use goquery to parse the HTML
+func parseHTML(htmlContent string) (*goquery.Document, error) {
+
+	reader := strings.NewReader(htmlContent)
+
+	doc, err := goquery.NewDocumentFromReader(reader)
+	if err != nil {
+		return nil, err
+	}
+
+	return doc, nil
 }
