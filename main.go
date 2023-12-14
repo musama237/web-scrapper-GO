@@ -28,4 +28,5 @@ func main() {
 	for _, book := range books {
 		fmt.Printf("Book: %+v\n", book)
 	}
+
 }
